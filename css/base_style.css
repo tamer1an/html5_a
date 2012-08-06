@@ -1,0 +1,151 @@
+﻿@charset "windows-1251";
+/******************
+RESET
+******************/
+* {  text-decoration: none; margin: 0; padding: 0; border: 0; } 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers  */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+body {	line-height: 1; }
+ol, ul {	list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after {	content: '';	content: none;  }
+table {	border-collapse: collapse;	border-spacing: 0;  }
+/******************
+BASE
+******************/
+html { height: 100%; }
+body {  height: 100%; }
+img {  max-width: 100%; }
+p {   line-height: 1.2em; }
+
+.cp{ cursor:pointer }
+
+.hidden{ display: none;	 }
+.block{ display: block; }
+
+.oh{overflow: hidden;}
+.os{overflow: scroll;}
+.oxh{overflow-x: hidden;}
+.oyh{overflow-y: hidden;}
+.oxs{overflow-x: scroll;}	
+.ov{overflow: visible;}
+.ovi{overflow: visible !important;}
+.oa{overflow: auto;}
+.oxa{
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+/******************
+Floating Layers and Position
+******************/
+.f{float:left;}
+.fi{float:left!important;}
+
+.r{float:right;}
+.ri{float:right!important;}
+
+.cl{clear:both;} 
+.cll{clear:left;} 
+
+.posr{ position:relative;}
+.posa{ position:absolute;}
+
+.zi1{ z-index:1; }
+.zi0{ z-index:0; }
+.zi-1{ z-index:-1; }
+/******************
+Width,height,margin,padding - setup 
+******************/
+.w90pc{ width:90%; }
+.w100pc{ width:100%; }
+	.w1024{ width:1024px; } 
+
+.h100pc{height:100%;}
+	.h768{height:768px;}
+
+.ma { margin:0 auto;  }
+.mt100pc{ margin-top:100% }
+
+.padding_zero{ padding:0px !important }
+.pt100pc{ padding-top:100% }
+/******************
+Background, borders 
+******************/
+.bg-size{
+ -webkit-background-size: 100% auto !important;
+  -moz-background-size: 100% auto !important;
+  background-size: 100% auto !important;
+}
+.bg-size-h{
+	-webkit-background-size:  auto 100% !important;
+	-moz-background-size:  auto 100% !important;
+	background-size:  auto 100% !important;
+}
+
+.bgr { background-color:red;} 
+.bgb { background-color:blue;} 
+.bgg { background-color:green;} 
+.bgw { background-color:white;}
+/******************
+Fonts setup
+******************/
+.fsi{ font-style:italic; }
+.fwb{ font-weight:bold; }
+
+.tac{text-align:center;}
+.tal{text-align:left  ;}
+.tar{text-align:right ;}
+
+.taci{text-align:center !important;}
+.tali{text-align:left   !important;}
+.tari{text-align:right  !important;}
+
+.fftimes{ font-family: 'Times New Roman', Times, serif; }
+.ffverdana{	font-family: Verdana; }
+.fflucida{ font-family: "Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif; }
+
+.tds {  text-shadow: 1px -1px 1px rgba(0,0,0,.7); }
+.tEmbos  {  text-shadow: -1px -1px 1px rgba(0,0,0,.5), 1px 1px 2px rgba(55,55,55,.6); }
+
+.unselectable{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/*Borders*/
+.brs {border:solid 1px}
+.bcr {border-color: red}
+
+/************************
+ * CSS 3 Effects and stylrs
+ * ***********************/
+.o70 { opacity: 0.7; }
+.o50 { opacity: 0.5; }
+.o30 { opacity: 0.3; }
+
+.bs {box-shadow: 1px -1px 2px rgba(0,0,0,.7);} 
