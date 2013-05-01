@@ -127,26 +127,61 @@ function Draw(){
 ///////////// Begin new one 
 (function(){    
     // clear canvas
-    ctxCSS = document.getCSSCanvasContext('2d', 'ide', 500, 500);
+    ctxCSS = document.getCSSCanvasContext('2d', 'ide', 300, 300);
     buffer2Canvas = ctxCSS.canvas;
     
     // console.log(buffer2Canvas,canvas2CSS);
     
     function drawShape(ctx, xoff, yoff) {
-      ctx.beginPath();
-      ctx.moveTo(114 + xoff, 93 + yoff);
-      ctx.bezierCurveTo(118 + xoff, 60 + yoff, 132 + xoff, 54 + yoff, 164 + xoff, 49 + yoff);
-      ctx.bezierCurveTo(217 + xoff, 40 + yoff, 218 + xoff, 85 + yoff, 230 + xoff, 80 + yoff);
-      ctx.bezierCurveTo(240 + xoff, 76 + yoff, 266 + xoff, 47 + yoff, 306 + xoff, 49 + yoff);
-      ctx.bezierCurveTo(321 + xoff, 50 + yoff, 378 + xoff, 88 + yoff, 341 + xoff, 132 + yoff);
-      ctx.bezierCurveTo(315 + xoff, 163 + yoff, 203 + xoff, 282 + yoff, 194 + xoff, 294 + yoff);
-      ctx.bezierCurveTo(185 + xoff, 306 + yoff, 121 + xoff, 115 + yoff, 112 + xoff, 90 + yoff);
         
-      // ctx.transform(10,20,30,40,50,60,70)
+        ctx.fillStyle = "green";
+        ctx.shadowColor = "rgba(0,100,100,0.8)";
+        ctx.shadowOffsetX = 4;
+        ctx.shadowOffsetY = 3;
+        ctx.shadowBlur = 5;
+        
+        // text pattern
+        // ctx.font = "25pt Georgia";
+        // ctx.fillText("^-^", 250,75);
+        
+        // create a linear gradient
+        var linGrd = ctx.createLinearGradient(230,230,20,280);
+        // add some color stops: red to blue, blue to green
+        linGrd.addColorStop(0, "#f00"); // start with red at 0
+        linGrd.addColorStop(0.5, "#00f"); // put blue at the halfway point
+        linGrd.addColorStop(1,"#0f0"); // finish with green
+        
+               
+        ///////////////
+        // create a radial gradient
+        // var radGrd = ctx.createRadialGradient(525,150,20,525,150,100);
+        // radGrd.addColorStop(0, "#f00"); // start with red at 0
+        // radGrd.addColorStop(0.5, "#00f"); // put blue at the halfway point
+        // radGrd.addColorStop(1,"#0f0"); // finish with green
+        // ctx.fillStyle = radGrd;
+        
+        // ctx.beginPath();
+        // ctx.arc(525,150,100,0,2*Math.PI);
+        // ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(231 + xoff, 263 + yoff);
+      ctx.bezierCurveTo(239 + xoff, 232 + yoff, 208 + xoff, 213 + yoff, 226 + xoff, 183 + yoff);
+      ctx.bezierCurveTo(252 + xoff, 140 + yoff, 310 + xoff, 192 + yoff, 269 + xoff, 189 + yoff);
+      ctx.bezierCurveTo(254 + xoff, 188 + yoff, 323 + xoff, 172 + yoff, 308 + xoff, 214 + yoff);
+      ctx.bezierCurveTo(297 + xoff, 244 + yoff, 268 + xoff, 247 + yoff, 231 + xoff, 263 + yoff);
+      
+      // create and fill it with the gradient
+      ctx.fillStyle = linGrd;
+      ctx.lineWidth = 3;   
+      ///////////////
+      
+    
+       
+      ctx.fill();  
       ctx.stroke();
     }
-    
-    drawShape(ctxCSS,0,0)
+    drawShape(ctxCSS,-50,-50);
     
 })();
 
