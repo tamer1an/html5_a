@@ -62,11 +62,11 @@ function init() {
 	}
     
     ////////////////////
-    // ctxS = document.getCSSCanvasContext('2d', 'demo', 200, 200);
-    // canvasS = ctxS.canvas;
+    ctxS = document.getCSSCanvasContext('2d', 'demo', 200, 200);
+    canvasS = ctxS.canvas;
     
-    canvas = document.getElementById('testCanvas');
-	context = canvas.getContext("2d"); //,'snow',50%,50%
+    canvas = canvasS;
+	context = ctxS;
     
     console.log(ctxCSS,canvasCSS,canvas,context);
     
