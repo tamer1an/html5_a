@@ -1,43 +1,15 @@
 /* Author: 
-
+    Trybynenko Andrii
 */
 
-// (function(){
-    
-//   var ctx = document.getCSSCanvasContext('2d', 'animation', WIDTH, HEIGHT);
-//   var canvas = ctx.canvas;
-  
-// })()
-
-
-var canvas = null;
-var context = null;
-var bufferCanvas = null;
-var bufferCanvasCtx = null;
-var flakeArray = [];
-var flakeTimer = null;
-var maxFlakes = 200;
-var ctxCSS = null; 
-var canvasCSS = null; 
-
-
-function Flake() {
-	this.x = Math.round(Math.random() * context.canvas.width);
-	this.y = -10;
-	this.drift = Math.random();
-	this.speed = Math.round(Math.random() * 5) + 1;
-	this.width = (Math.random() * 3) + 2;
-	this.height = this.width;
-}
-
-function init() {    
-    ctxCSS = document.getCSSCanvasContext('2d', 'snow', 200, 200);
+// EXAMPLE 1 DIAG
+ ctxCSS = document.getCSSCanvasContext('2d', 'diag', 200, 200);
     canvasCSS = ctxCSS.canvas;
    
     // console.log(ctxCSS,canvasCSS);
         
     ctxCSS.clearRect(0, 0, 200, 200);
-	
+    
 	var center = [200 / 2, 200 / 2];
 	var PADDING = 0; // px
 	var R = Math.min(200, 200) / 2 - PADDING;
@@ -60,15 +32,37 @@ function init() {
 	  ctxCSS.fill();
 	  lastPosition += Math.PI * 2 * (data[i] / total);
 	}
-    
-    ////////////////////
+
+
+// EXAMPLE 2 SNOW
+var canvas = null;
+var context = null;
+var bufferCanvas = null;
+var bufferCanvasCtx = null;
+var flakeArray = [];
+var flakeTimer = null;
+var maxFlakes = 200;
+var ctxCSS = null; 
+var canvasCSS = null; 
+
+function Flake() {
+	this.x = Math.round(Math.random() * context.canvas.width);
+	this.y = -10;
+	this.drift = Math.random();
+	this.speed = Math.round(Math.random() * 5) + 1;
+	this.width = (Math.random() * 3) + 2;
+	this.height = this.width;
+}
+
+function init() {        
+    //////////////////// connecting to cssCanvas
     ctxS = document.getCSSCanvasContext('2d', 'demo', 200, 200);
     canvasS = ctxS.canvas;
     
     canvas = canvasS;
 	context = ctxS;
     
-    console.log(ctxCSS,canvasCSS,canvas,context);
+    // console.log('4',ctxS,canvasS,context);
     
     bufferCanvas = document.createElement("canvas");
 	bufferCanvasCtx = bufferCanvas.getContext("2d");
@@ -96,8 +90,7 @@ function blank() {
 
 function animate() {
 	Update();
-	Draw();
-    
+	Draw();   
    // ctx = document.getCSSCanvasContext('2d', 'animation', 300, 300);
 }
 
@@ -116,24 +109,66 @@ function Update() {
 
 function Draw(){
 	context.save();
-/*
-	// create a clipping region
-	bufferCanvasCtx.beginPath();
-	bufferCanvasCtx.fillStyle="black";
-	bufferCanvasCtx.fillRect(0,0,bufferCanvas.width,bufferCanvas.height);
-	bufferCanvasCtx.arc(bufferCanvas.width/2,bufferCanvas.height/2,bufferCanvas.height/3,0,2*Math.PI);
-	bufferCanvasCtx.clip();
-*/
 	blank();
 
 	for (var i = 0; i < flakeArray.length; i++) {
 		bufferCanvasCtx.fillStyle = "white";
 		bufferCanvasCtx.fillRect(flakeArray[i].x,flakeArray[i].y,flakeArray[i].width,flakeArray[i].height);
-	}
-	
+	}	
 	// copy the entire rendered image from the buffer canvas to the visible one
 	context.drawImage(bufferCanvas, 0,0,bufferCanvas.width, bufferCanvas.height);
 	context.restore();
 }
 
+
+
+
 // var gl = document.getCSSCanvasContext('experimental-webgl', 'animation', 300, 150);
+///////////// Begin new one 
+(function(){    
+    // clear canvas
+    ctxCSS = document.getCSSCanvasContext('2d', 'ide', 500, 500);
+    buffer2Canvas = ctxCSS.canvas;
+    
+    // console.log(buffer2Canvas,canvas2CSS);
+    
+    function drawShape(ctx, xoff, yoff) {
+      ctx.beginPath();
+      ctx.moveTo(114 + xoff, 93 + yoff);
+      ctx.bezierCurveTo(118 + xoff, 60 + yoff, 132 + xoff, 54 + yoff, 164 + xoff, 49 + yoff);
+      ctx.bezierCurveTo(217 + xoff, 40 + yoff, 218 + xoff, 85 + yoff, 230 + xoff, 80 + yoff);
+      ctx.bezierCurveTo(240 + xoff, 76 + yoff, 266 + xoff, 47 + yoff, 306 + xoff, 49 + yoff);
+      ctx.bezierCurveTo(321 + xoff, 50 + yoff, 378 + xoff, 88 + yoff, 341 + xoff, 132 + yoff);
+      ctx.bezierCurveTo(315 + xoff, 163 + yoff, 203 + xoff, 282 + yoff, 194 + xoff, 294 + yoff);
+      ctx.bezierCurveTo(185 + xoff, 306 + yoff, 121 + xoff, 115 + yoff, 112 + xoff, 96 + yoff);
+      ctx.stroke();
+    }
+    
+    drawShape(ctxCSS,20,20)
+    
+ //    ctxCSS.clearRect(0, 0, 500, 500);
+    
+ //    var center = [500 / 2, 500 / 2];
+	// var PADDING = 0; // px
+	// var R = Math.min(200, 200) / 2 - PADDING;
+
+	// var data = [75, 68, 32, 95];
+	// var colors = ["red", "black", "blue", "#ffcc00"];
+
+	// var lastPosition = 0;
+	// var total = data.reduce(function(previousValue, currentValue, index, array) {
+	//   return previousValue + currentValue
+	// });
+
+	// for (var i = 0; i < data.length; ++i) {
+	//   ctxCSS.fillStyle = colors[i];
+	//   ctxCSS.beginPath();
+	//   ctxCSS.moveTo(center[0], center[1]);
+	//   ctxCSS.arc(center[0], center[1], R, lastPosition,
+	//           lastPosition + (Math.PI * 2 * (data[i] / total)), false);
+	//   ctxCSS.lineTo(center[0], center[1]);
+	//   ctxCSS.fill();
+	//   lastPosition += Math.PI * 2 * (data[i] / total);
+	// }
+})();
+
