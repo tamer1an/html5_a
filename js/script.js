@@ -140,35 +140,13 @@ function Draw(){
       ctx.bezierCurveTo(240 + xoff, 76 + yoff, 266 + xoff, 47 + yoff, 306 + xoff, 49 + yoff);
       ctx.bezierCurveTo(321 + xoff, 50 + yoff, 378 + xoff, 88 + yoff, 341 + xoff, 132 + yoff);
       ctx.bezierCurveTo(315 + xoff, 163 + yoff, 203 + xoff, 282 + yoff, 194 + xoff, 294 + yoff);
-      ctx.bezierCurveTo(185 + xoff, 306 + yoff, 121 + xoff, 115 + yoff, 112 + xoff, 96 + yoff);
+      ctx.bezierCurveTo(185 + xoff, 306 + yoff, 121 + xoff, 115 + yoff, 112 + xoff, 90 + yoff);
+        
+      // ctx.transform(10,20,30,40,50,60,70)
       ctx.stroke();
     }
     
-    drawShape(ctxCSS,20,20)
+    drawShape(ctxCSS,0,0)
     
- //    ctxCSS.clearRect(0, 0, 500, 500);
-    
- //    var center = [500 / 2, 500 / 2];
-	// var PADDING = 0; // px
-	// var R = Math.min(200, 200) / 2 - PADDING;
-
-	// var data = [75, 68, 32, 95];
-	// var colors = ["red", "black", "blue", "#ffcc00"];
-
-	// var lastPosition = 0;
-	// var total = data.reduce(function(previousValue, currentValue, index, array) {
-	//   return previousValue + currentValue
-	// });
-
-	// for (var i = 0; i < data.length; ++i) {
-	//   ctxCSS.fillStyle = colors[i];
-	//   ctxCSS.beginPath();
-	//   ctxCSS.moveTo(center[0], center[1]);
-	//   ctxCSS.arc(center[0], center[1], R, lastPosition,
-	//           lastPosition + (Math.PI * 2 * (data[i] / total)), false);
-	//   ctxCSS.lineTo(center[0], center[1]);
-	//   ctxCSS.fill();
-	//   lastPosition += Math.PI * 2 * (data[i] / total);
-	// }
 })();
 
