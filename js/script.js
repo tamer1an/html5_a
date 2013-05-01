@@ -23,7 +23,8 @@ function Flake() {
 
 function init() {
 	canvas = document.getElementById('testCanvas');
-	context = canvas.getContext("2d");
+    
+	context = canvas.getContext("2d"); //,'snow',50%,50%
     
 	bufferCanvas = document.createElement("canvas");
 	bufferCanvasCtx = bufferCanvas.getContext("2d");
@@ -53,7 +54,7 @@ function animate() {
 	Update();
 	Draw();
     
-    ctx = document.getCSSCanvasContext('2d', 'animation', 300, 300);
+   // ctx = document.getCSSCanvasContext('2d', 'animation', 300, 300);
 }
 
 function Update() {
@@ -130,7 +131,7 @@ var computedStyle = window.getComputedStyle(document.querySelector('#container')
 var WIDTH = parseInt(computedStyle.width);
 var HEIGHT = parseInt(computedStyle.height);
 
-if (supported) {
+if (supported) { //console.log('true');
   var ctx = document.getCSSCanvasContext('2d', 'animation', WIDTH, HEIGHT);
   var canvas = ctx.canvas;
 } else {

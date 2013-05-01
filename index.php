@@ -142,9 +142,14 @@
         </div>
     </div>
 	
+    <div id="canvas-test" style="float:left;width:100%;height:500px;margin-top:3%;">
+    
+    </div>
+    
 	<canvas style="float:left;clear:both;margin-left:33%;margin-top:40px" id="testCanvas" width="500" height="500">
 		Canvas not supported
 	</canvas>
+    
 	
   </div>
   <footer>

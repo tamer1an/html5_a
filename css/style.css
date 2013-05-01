@@ -296,3 +296,8 @@ td { vertical-align: top; }
 .canvas-bg {
   background: -webkit-canvas(animation) no-repeat 50% 50%;
 }
+
+#canvas-test {
+    background: -webkit-canvas(snow) no-repeat 50% 50%;
+    
+}
