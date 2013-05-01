@@ -113,3 +113,4 @@
 {"ts":1367404523286,"patch":[[{"diffs":[[0,"gin-top:"],[1,"40px"],[0,"\" id=\"te"]],"start1":5894,"start2":5894,"length1":16,"length2":20}]],"length":7485,"saved":false}
 {"ts":1367404544815,"patch":[[{"diffs":[[0,"in-left:"],[-1,"5"],[1,"33"],[0,"0%;margi"]],"start1":5879,"start2":5879,"length1":17,"length2":18}]],"length":7486,"saved":false}
 {"ts":1367404546082,"patch":[[{"diffs":[[0,"-left:33"],[-1,"0"],[0,"%;margin"]],"start1":5881,"start2":5881,"length1":17,"length2":16}]],"length":7485,"saved":false}
+{"contributors":[],"silentsave":true,"ts":1367437441283,"patch":[[{"diffs":[[0,"iv>\r\n\t\r\n"],[1,"    <div id=\"canvas-test\" style=\"float:left;width:100%;height:200px;margin-top:3%;\">\r\n    \r\n    </div>\r\n    \r\n"],[0,"\t<canvas"]],"start1":5829,"start2":5829,"length1":16,"length2":126},{"diffs":[[0,"anvas>\r\n"],[1,"    \r\n"],[0,"\t\r\n  </d"]],"start1":6089,"start2":6089,"length1":16,"length2":22}]],"length":7601,"saved":false}

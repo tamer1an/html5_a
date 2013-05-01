@@ -2,6 +2,13 @@
 
 */
 
+// (function(){
+    
+//   var ctx = document.getCSSCanvasContext('2d', 'animation', WIDTH, HEIGHT);
+//   var canvas = ctx.canvas;
+  
+// })()
+
 
 var canvas = null;
 var context = null;
@@ -10,7 +17,9 @@ var bufferCanvasCtx = null;
 var flakeArray = [];
 var flakeTimer = null;
 var maxFlakes = 200;
-var ctx = null;;
+var ctxCSS = null; 
+var canvasCSS = null; 
+
 
 function Flake() {
 	this.x = Math.round(Math.random() * context.canvas.width);
@@ -21,9 +30,41 @@ function Flake() {
 	this.height = this.width;
 }
 
-function init() {
-	canvas = document.getElementById('testCanvas');
+function init() {    
+    ctxCSS = document.getCSSCanvasContext('2d', 'snow', 200, 200);
+    canvasCSS = ctxCSS.canvas;
+   
+    console.log(ctxCSS,canvasCSS);
     
+    
+        ctxCSS.clearRect(0, 0, 200, 200);
+	
+	var center = [200 / 2, 200 / 2];
+	var PADDING = 0; // px
+	var R = Math.min(200, 200) / 2 - PADDING;
+
+	var data = [75, 68, 32, 95];
+	var colors = ["red", "black", "blue", "#ffcc00"];
+
+	var lastPosition = 0;
+	var total = data.reduce(function(previousValue, currentValue, index, array) {
+	  return previousValue + currentValue
+	});
+
+	for (var i = 0; i < data.length; ++i) {
+	  ctxCSS.fillStyle = colors[i];
+	  ctxCSS.beginPath();
+	  ctxCSS.moveTo(center[0], center[1]);
+	  ctxCSS.arc(center[0], center[1], R, lastPosition,
+	          lastPosition + (Math.PI * 2 * (data[i] / total)), false);
+	  ctxCSS.lineTo(center[0], center[1]);
+	  ctxCSS.fill();
+	  lastPosition += Math.PI * 2 * (data[i] / total);
+	}
+    
+    ////////////////////
+   
+    canvas = document.getElementById('testCanvas');
 	context = canvas.getContext("2d"); //,'snow',50%,50%
     
 	bufferCanvas = document.createElement("canvas");

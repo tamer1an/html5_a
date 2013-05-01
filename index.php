@@ -142,7 +142,7 @@
         </div>
     </div>
 	
-    <div id="canvas-test" style="float:left;width:100%;height:500px;margin-top:3%;">
+    <div id="canvas-test" style="float:left;width:100%;height:200px;margin-top:3%;">
     
     </div>
     
