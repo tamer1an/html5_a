@@ -123,34 +123,94 @@ function Draw(){
 
 
 
-// var gl = document.getCSSCanvasContext('experimental-webgl', 'animation', 300, 150);
-///////////// Begin new one 
-(function(){    
-    // clear canvas
-    ctxCSS = document.getCSSCanvasContext('2d', 'ide', 300, 300);
-    buffer2Canvas = ctxCSS.canvas;
-    
-    // console.log(buffer2Canvas,canvas2CSS);
-    
-    function drawShape(ctx, xoff, yoff) {
-        
-        ctx.fillStyle = "green";
-        ctx.shadowColor = "rgba(0,100,100,0.8)";
+(function(){ // css background driven by canvas
+    ctxCSS = document.getCSSCanvasContext('2d', 'heart', 300, 300);
+//    buffer2Canvas = ctxCSS.canvas;
+
+    function drawShape(ctx, xoff, yoff, options) {
+//        try {
+            var linGrd = ctx.createLinearGradient(230,230,20,280);
+
+            // add some color stops: red to blue, blue to green
+            linGrd.addColorStop(0, "rgba(255,100,100,0.07)"); // start with red at 0
+            linGrd.addColorStop(0.5, "rgba(255,100,100,0.2)"); // put blue at the halfway point
+            linGrd.addColorStop(1,"rgba(255,100,100,0.04)"); // finish with green
+//        } catch (e) {
+//             console.log(e);
+//        }
+        ctx.shadowColor = "rgba(255,100,100,1)";
         ctx.shadowOffsetX = 4;
         ctx.shadowOffsetY = 3;
         ctx.shadowBlur = 5;
+
+        ctx.beginPath();
+        ctx.moveTo(231 + xoff, 263 + yoff);
+        ctx.bezierCurveTo(239 + xoff, 232 + yoff, 208 + xoff, 213 + yoff, 226 + xoff, 183 + yoff);
+        ctx.bezierCurveTo(252 + xoff, 140 + yoff, 310 + xoff, 192 + yoff, 269 + xoff, 189 + yoff);
+        ctx.bezierCurveTo(254 + xoff, 188 + yoff, 323 + xoff, 172 + yoff, 308 + xoff, 214 + yoff);
+        ctx.bezierCurveTo(297 + xoff, 244 + yoff, 268 + xoff, 247 + yoff, 231 + xoff, 263 + yoff);
+
+//        console.log(options.mathR);
+//        ctx.lineWidth = 3;
+        ctx.strokeStyle = "rgba(255, 100, 100, 0.18)";
+        ctx.fillStyle = linGrd;
+
+        ctx.fill();
+        ctx.stroke();
+    }
+
+//    console.log (typeof ctxCSS.createLinearGradient)
+    drawShape(ctxCSS,-25,-70);
+//    requestAnimationFrame(drawShape)
+})();
+
+// var gl = document.getCSSCanvasContext('experimental-webgl', 'animation', 300, 150);
+///////////// Begin new one 
+// (function(){    
+//     // clear canvas
+//     ctxCSS = document.getCSSCanvasContext('2d', 'ide', 300, 300);
+//     buffer2Canvas = ctxCSS.canvas;
         
-        // text pattern
+//     function drawShape(ctx, xoff, yoff) {
+        
+//         ctx.shadowColor = "rgba(255,100,100,0.8)";
+//         ctx.shadowOffsetX = 4;
+//         ctx.shadowOffsetY = 3;
+//         ctx.shadowBlur = 5;
+
+//       ctx.beginPath();
+//       ctx.moveTo(231 + xoff, 263 + yoff);
+//       ctx.bezierCurveTo(239 + xoff, 232 + yoff, 208 + xoff, 213 + yoff, 226 + xoff, 183 + yoff);
+//       ctx.bezierCurveTo(252 + xoff, 140 + yoff, 310 + xoff, 192 + yoff, 269 + xoff, 189 + yoff);
+//       ctx.bezierCurveTo(254 + xoff, 188 + yoff, 323 + xoff, 172 + yoff, 308 + xoff, 214 + yoff);
+//       ctx.bezierCurveTo(297 + xoff, 244 + yoff, 268 + xoff, 247 + yoff, 231 + xoff, 263 + yoff);
+      
+//          console.log(ctx);
+         
+         
+//       ctx.strokeStyle = "rgba(255, 100, 100, 0.314)";   
+//       ctx.stroke();
+//     }
+//     drawShape(ctxCSS,-50,-50);
+    
+// })();
+
+        // ctx.fillStyle = "green";
+
+    // text pattern
         // ctx.font = "25pt Georgia";
         // ctx.fillText("^-^", 250,75);
         
-        // create a linear gradient
+        /* 
+        
+        / create a linear gradient
         var linGrd = ctx.createLinearGradient(230,230,20,280);
         // add some color stops: red to blue, blue to green
         linGrd.addColorStop(0, "#f00"); // start with red at 0
         linGrd.addColorStop(0.5, "#00f"); // put blue at the halfway point
         linGrd.addColorStop(1,"#0f0"); // finish with green
         
+        */
                
         ///////////////
         // create a radial gradient
@@ -163,25 +223,12 @@ function Draw(){
         // ctx.beginPath();
         // ctx.arc(525,150,100,0,2*Math.PI);
         // ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(231 + xoff, 263 + yoff);
-      ctx.bezierCurveTo(239 + xoff, 232 + yoff, 208 + xoff, 213 + yoff, 226 + xoff, 183 + yoff);
-      ctx.bezierCurveTo(252 + xoff, 140 + yoff, 310 + xoff, 192 + yoff, 269 + xoff, 189 + yoff);
-      ctx.bezierCurveTo(254 + xoff, 188 + yoff, 323 + xoff, 172 + yoff, 308 + xoff, 214 + yoff);
-      ctx.bezierCurveTo(297 + xoff, 244 + yoff, 268 + xoff, 247 + yoff, 231 + xoff, 263 + yoff);
-      
-      // create and fill it with the gradient
-      ctx.fillStyle = linGrd;
-      ctx.lineWidth = 3;   
+        
+          // create and fill it with the gradient
+      // ctx.fillStyle = linGrd;
+      // ctx.lineWidth = 3;   
       ///////////////
-      
+      // ctx.strokeStyle(255,45,45,0.4)
     
        
-      ctx.fill();  
-      ctx.stroke();
-    }
-    drawShape(ctxCSS,-50,-50);
-    
-})();
-
+      // ctx.fill(); 

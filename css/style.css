@@ -301,5 +301,4 @@ td { vertical-align: top; }
       /*background: -webkit-canvas(snow) no-repeat 50% 50%;*/
     background: -webkit-canvas(ide) no-repeat 50% 50%;
     background-repeat:repeat;
-    opacity: 0.9;
 }
