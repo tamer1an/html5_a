@@ -122,26 +122,29 @@ function Draw(){
 
 
 
-
 (function(){ // css background driven by canvas
-    ctxCSS = document.getCSSCanvasContext('2d', 'heart', 300, 300);
+    var ctxCSS = document.getCSSCanvasContext('2d', 'heart', 300, 300),
+        Pi =  0.314159265359,
+        gs =  1.61803398875;
+
 //    buffer2Canvas = ctxCSS.canvas;
 
     function drawShape(ctx, xoff, yoff, options) {
 //        try {
-            var linGrd = ctx.createLinearGradient(230,230,20,280);
+//            var linGrd = ctx.createLinearGradient(230,230,20,280);
+            var linGrd = ctx.createLinearGradient(230*(Math.random()+Pi),230*(Math.random()),33,280*Math.random());
 
             // add some color stops: red to blue, blue to green
             linGrd.addColorStop(0, "rgba(255,100,100,0.07)"); // start with red at 0
-            linGrd.addColorStop(0.5, "rgba(255,100,100,0.2)"); // put blue at the halfway point
-            linGrd.addColorStop(1,"rgba(255,100,100,0.04)"); // finish with green
+            linGrd.addColorStop(Math.random(), "rgba(255,100,100,0.2)"); // put blue at the halfway point
+            linGrd.addColorStop(Math.random(),"rgba(255,100,100,0.04)"); // finish with green
 //        } catch (e) {
 //             console.log(e);
 //        }
         ctx.shadowColor = "rgba(255,100,100,1)";
         ctx.shadowOffsetX = 4;
         ctx.shadowOffsetY = 3;
-        ctx.shadowBlur = 5;
+        ctx.shadowBlur = 5-Math.random()*2;
 
         ctx.beginPath();
         ctx.moveTo(231 + xoff, 263 + yoff);
@@ -151,7 +154,7 @@ function Draw(){
         ctx.bezierCurveTo(297 + xoff, 244 + yoff, 268 + xoff, 247 + yoff, 231 + xoff, 263 + yoff);
 
 //        console.log(options.mathR);
-//        ctx.lineWidth = 3;
+        ctx.lineWidth = Math.random()*gs;
         ctx.strokeStyle = "rgba(255, 100, 100, 0.18)";
         ctx.fillStyle = linGrd;
 
@@ -163,6 +166,7 @@ function Draw(){
     drawShape(ctxCSS,-25,-70);
 //    requestAnimationFrame(drawShape)
 })();
+
 
 // var gl = document.getCSSCanvasContext('experimental-webgl', 'animation', 300, 150);
 ///////////// Begin new one 
